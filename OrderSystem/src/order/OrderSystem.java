@@ -7,12 +7,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class OrderSystem extends Application {
 	public void start(Stage welcomeStage) throws Exception {
 		Label welcomeLabel = new Label("Welcome to our Pizza Restaurant!");
+
+		//Image pizzaImage = new Image("pizza.png");
+		ImageView pizzaImageView = new ImageView("file:res/images/pizza.png");
+		pizzaImageView.setFitHeight(100);
+		pizzaImageView.setFitWidth(100);
 		Button startButton = new Button("Start");
 		
 		Button continueButton = new Button("Continue");
@@ -20,7 +29,8 @@ public class OrderSystem extends Application {
 		welcomePane.setAlignment(Pos.CENTER);
 		welcomePane.setVgap(8);
 		welcomePane.add(welcomeLabel, 3, 1);
-		welcomePane.add(startButton, 3, 2);
+		welcomePane.add(pizzaImageView, 3, 2);
+		welcomePane.add(startButton, 3, 3);
 		
 		Scene welcomeScene = new Scene(welcomePane, 200, 200);
 		welcomeStage.setTitle("Order System");
