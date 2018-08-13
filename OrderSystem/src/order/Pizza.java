@@ -1,16 +1,18 @@
 package order;
 
+import java.text.NumberFormat;
+
 public class Pizza {
 	private String meat;
 	private String vegetable;
 	private String cheese;
 	private String crust;
 	private String size;
-	private String numOfPizza;
+	private int numOfPizza;
 	private double price;
 	
 	public Pizza(String meat, String vegetable, String cheese,
-	   String crust, String size, String numOfPizza) {
+	   String crust, String size, int numOfPizza) {
 	this.meat = meat;
 	this.vegetable = vegetable;
 	this.cheese = cheese;
@@ -34,10 +36,10 @@ public class Pizza {
 	public String getSize() {
 		return this.size;
 	}
-	public String getNumOfPizza() {
+	public int getNumOfPizza() {
 		return this.numOfPizza;
 	}
-	public double getPrice() {
+	public String getPrice() {
 		if (size.equals("Large")) {
 			this.price = 15.99;
 		}
@@ -47,6 +49,7 @@ public class Pizza {
 		else {
 			this.price = 4.99;
 		}
-		return this.price;
+		NumberFormat priceOutput = NumberFormat.getCurrencyInstance();
+		return priceOutput.format(this.numOfPizza * this.price);
 	}
 }

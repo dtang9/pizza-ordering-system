@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,9 +18,8 @@ import javafx.stage.Stage;
 
 public class OrderSystem extends Application {
 	public void start(Stage welcomeStage) throws Exception {
+		
 		Label welcomeLabel = new Label("Welcome to our Pizza Restaurant!");
-
-		//Image pizzaImage = new Image("pizza.png");
 		ImageView pizzaImageView = new ImageView("file:res/images/pizza.png");
 		pizzaImageView.setFitHeight(100);
 		pizzaImageView.setFitWidth(100);
@@ -98,9 +99,9 @@ public class OrderSystem extends Application {
 		sizeComboBox.getItems().addAll("Large", "Medium", "Small");
 		sizeComboBox.setValue("Medium");
 		
-		//Replace with spinner
-		TextField numOfPizzaField = new TextField();
+		Spinner<Integer> numOfPizzaSpinner = new Spinner(1, 20, 1);
 		
+		TextField priceField = new TextField();
 		Button checkoutButton = new Button("Check out");
 		GridPane pizzaPane = new GridPane();
 		pizzaPane.setAlignment(Pos.CENTER);
@@ -119,9 +120,10 @@ public class OrderSystem extends Application {
 		pizzaPane.add(cheeseComboBox, 2, 3);
 		pizzaPane.add(crustComboBox, 2, 4);
 		pizzaPane.add(sizeComboBox, 2, 5);
-		pizzaPane.add(numOfPizzaField, 2, 6);
+		pizzaPane.add(numOfPizzaSpinner, 2, 6);
+		pizzaPane.add(priceField, 2, 7);
+		pizzaPane.add(checkoutButton, 2, 8);
 		
-		pizzaPane.add(checkoutButton, 2, 7);
 		Scene pizzaScene = new Scene(pizzaPane, 300, 300);
 		
 		startButton.setOnAction(e -> {
@@ -138,9 +140,9 @@ public class OrderSystem extends Application {
 		checkoutButton.setOnAction(e -> {
 			Pizza myPizza = new Pizza(meatComboBox.getValue(), vegetableComboBox.getValue(),
 			   cheeseComboBox.getValue(), crustComboBox.getValue(), sizeComboBox.getValue(),
-			   numOfPizzaField.getText());
+			   numOfPizzaSpinner.getValue());
+			priceField.setText(myPizza.getPrice());
 		});
-		
 	}
 
 	public static void main(String[] args) {
