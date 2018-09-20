@@ -2,9 +2,6 @@
 
 A JavaFX application where users fill in their contact information and customize their pizza order.
 
-# Project Status
-This project is currently in development.
-
 # Getting Started
 - Windows 7 and above 
 - Any IDE such as Eclipse
@@ -23,4 +20,5 @@ The user can choose toppings and size of pizza. Once the user clicks checkout, t
 
 ![order menu](https://user-images.githubusercontent.com/37752883/45794556-1f17f400-bc4c-11e8-8dde-747828e8ade0.PNG)
 
-
+# Reflection
+Pizza Ordering System is one of my first personal side projects. I recently started learning about creating GUIs using JavaFX and I want to apply my skills. I plan on learning more technologies that will allow me to create larger scaled projects.
